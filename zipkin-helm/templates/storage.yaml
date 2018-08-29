@@ -13,7 +13,6 @@ spec:
   clusterIP: None
   selector:
     app: zipkin-cassandra
-
 {{if eq .Values.cassandra.storageProvider "aws"}}
 ---
 kind: StorageClass
@@ -43,7 +42,8 @@ metadata:
 provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-ssd
-{{ end }}
+---
+{{- end }}
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
