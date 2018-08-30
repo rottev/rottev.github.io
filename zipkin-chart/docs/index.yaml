@@ -1,0 +1,12 @@
+apiVersion: v1
+entries:
+  zipkin-chart:
+  - apiVersion: v1
+    created: 2018-08-30T19:25:18.341973656+03:00
+    description: Zipkin Helm chart for Kubernetes
+    digest: da2879661e5b25f5fedfb6c94e555d253c5e7e8d782a6ce8d840684bd96cf6bb
+    name: zipkin-chart
+    urls:
+    - https://rottev.github.io/zipkin-chart/docs/zipkin-chart-0.2.1.tgz
+    version: 0.2.1
+generated: 2018-08-30T19:25:18.341518597+03:00
