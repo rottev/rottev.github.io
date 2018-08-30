@@ -1,10 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "kubernetes.name" . }}
+  name: "{{  .Chart.Name }}-zipkin-deployment"
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ template "kubernetes.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -13,13 +12,9 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "kubernetes.name" . }}
+        app: "{{  .Chart.Name }}-selector"
         release: {{ .Release.Name }}
     spec:
-      nodeSelector:
-        {{- range $key, $val := .Values.zipkinNodeSelector }}
-        {{ $key }}: {{ $val | quote }}
-        {{- end}}
       containers:
       - name: zipkin
         image: openzipkin/zipkin:{{ .Values.zipkinImageVersion }}
