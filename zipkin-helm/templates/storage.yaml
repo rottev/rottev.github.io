@@ -43,7 +43,7 @@ provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-ssd
 ---
-{{- end }}
+{{ end }}
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
