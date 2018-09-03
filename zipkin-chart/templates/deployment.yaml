@@ -20,11 +20,13 @@ spec:
         image: openzipkin/zipkin:{{ .Values.zipkinImageVersion }}
         env:
           - name: STORAGE_TYPE
-            value: "cassandra"
+            value: "cassandra3"
           - name: STORAGE_PORT_9042_TCP_ADDR
             value: "cassandra"
           - name: JAVA_OPTS
             value: "-Dlogging.level.zipkin=ERROR -Dlogging.level.zipkin2=ERROR -Dnetworkaddress.cache.ttl=15"
+          - name: CASSANDRA_CONTACT_POINTS
+            value: "cassandra"
         ports:
         - containerPort: 9411
           name: zipkin-api
